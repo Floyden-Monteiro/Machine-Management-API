@@ -11,7 +11,11 @@ A RESTful API for managing machines in a collection.
 
 ## API Documentation
 
-- See the Postman collection documentation for detailed information on each API endpoint: [API Documentation](https://speeding-sunset-295149.postman.co/workspace/44cd9f79-6622-4f5a-8da8-2ae3196e5e95/documentation/15699605-b1ce9ce9-d36e-40ca-b5eb-54536475e3f8)
+- See the Postman collection documentation for detailed information on each API endpoint: [API Documentation](https://speeding-sunset-295149.postman.co/workspace/Team-Workspace~44cd9f79-6622-4f5a-8da8-2ae3196e5e95/collection/15699605-b1ce9ce9-d36e-40ca-b5eb-54536475e3f8?action=share&creator=15699605)
+
+## Start the server by running the following command:
+
+`npm run dev`
 
 ## Environment Configuration
 
@@ -25,7 +29,3 @@ A RESTful API for managing machines in a collection.
 - MongoDB
 - Mongoose
 - mongoose-paginate-v2
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
