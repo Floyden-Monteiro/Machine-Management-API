@@ -73,20 +73,22 @@ const deleteMachine = async (req, res) => {
 
 const getMachines = async (req, res) => {
   const { page = 1, limit = 10, filter, sort, search, projection } = req.query;
-
+  const projectionObj = projection
+    ? JSON.parse(projection.replace(/'/g, '"'))
+    : undefined;
   try {
     const options = {
       page: parseInt(page, 10),
       limit: parseInt(limit, 10),
       sort,
-      select: projection ? projection.replace(/,/g, ' ') : undefined
+      select: projectionObj,
     };
     const query = filter ? JSON.parse(filter) : {};
     if (search) {
       query.name = { $regex: `^${search.replace(/"/g, '')}$`, $options: 'i' };
-
-      console.log('Query:', query);
     }
+    console.log('query: ', query);
+    console.log('options: ', options);
 
     const machines = await Machine.paginate(query, options);
     return res
