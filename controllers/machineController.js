@@ -87,8 +87,6 @@ const getMachines = async (req, res) => {
     if (search) {
       query.name = { $regex: `^${search.replace(/"/g, '')}$`, $options: 'i' };
     }
-    console.log('query: ', query);
-    console.log('options: ', options);
 
     const machines = await Machine.paginate(query, options);
     return res
