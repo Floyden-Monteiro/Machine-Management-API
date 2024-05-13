@@ -79,11 +79,13 @@ const getMachines = async (req, res) => {
       page: parseInt(page, 10),
       limit: parseInt(limit, 10),
       sort,
-      select: projection,
+      select: projection ? projection.replace(/,/g, ' ') : undefined
     };
     const query = filter ? JSON.parse(filter) : {};
     if (search) {
-      query.$text = { $search: search };
+      query.name = { $regex: `^${search.replace(/"/g, '')}$`, $options: 'i' };
+
+      console.log('Query:', query);
     }
 
     const machines = await Machine.paginate(query, options);

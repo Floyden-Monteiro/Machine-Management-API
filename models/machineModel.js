@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 const MachineSchema = new mongoose.Schema({
   name: {
@@ -23,6 +24,8 @@ const MachineSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+MachineSchema.plugin(mongoosePaginate);
 
 const Machine = mongoose.model('Machine', MachineSchema);
 

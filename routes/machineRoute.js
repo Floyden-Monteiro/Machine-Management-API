@@ -12,7 +12,6 @@ router
   .get('/machines', getMachines)
   .post('/machine', createMachine)
   .put('/machine/:id', updateMachine)
-
   .delete('/machine/:id', deleteMachine);
 
 export default router;
