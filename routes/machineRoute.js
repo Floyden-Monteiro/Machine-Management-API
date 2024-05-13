@@ -1,8 +1,18 @@
 import { Router } from 'express';
-import machine from '../controllers/machineController.js';
+import {
+  createMachine,
+  deleteMachine,
+  getMachines,
+  updateMachine,
+} from '../controllers/machineController.js';
 
 const router = Router();
 
-router.get('/machine', machine);
+router
+  .get('/machines', getMachines)
+  .post('/machine', createMachine)
+  .put('/machine/:id', updateMachine)
+
+  .delete('/machine/:id', deleteMachine);
 
 export default router;
